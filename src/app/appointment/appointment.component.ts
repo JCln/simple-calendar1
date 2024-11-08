@@ -3,6 +3,7 @@ import { StatesService } from '../services/states.service';
 import { Initiate } from 'src/app/shared/initiate';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { UtilsService } from '../services/utils.service';
+import { IState } from '../interfaces/interface';
 
 @Component({
   selector: 'app-appointment',
@@ -10,7 +11,8 @@ import { UtilsService } from '../services/utils.service';
   styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent extends Initiate {
-  states: any[] = [];
+  states: IState[] = [];
+  appointments: IState[] = [];
 
   constructor(
     public statesService: StatesService,
@@ -20,16 +22,28 @@ export class AppointmentComponent extends Initiate {
   }
   override classWrapper(): void {
     this.states = this.statesService.dailyTable;
-    console.log(this.states);
   }
   drop(event: CdkDragDrop<string[]> | any) {
     moveItemInArray(this.states, event.previousIndex, event.currentIndex);
   }
+  tableOfAppointments = (body: IState) => {
+    if (body.fromTime && body.toTime)
+      this.appointments.push(body);
+  }
   stateClicked = async (item: any) => {
-    const res = await this.utilsService.matSetAppointmentDialog(item);
-    console.log(res);
-    // console.log(res.picker.getDay());
-    // console.log(res.picker.getDate());
-    // console.log(res.picker.getTime());
+    const res: IState = await this.utilsService.matSetAppointmentDialog(item);
+    if (res) {
+      this.createAppointment(res.fromTime, res.toTime);
+      this.tableOfAppointments(res);
+    }
+  }
+  createAppointment = (fromTime: string, toTime: string) => {
+    for (let index = 0; index < this.states.length; index++) {
+      if (
+        Number.parseFloat(fromTime) <= Number.parseFloat(this.states[index].fromTime) &&
+        Number.parseFloat(toTime) + 1 >= Number.parseFloat(this.states[index].toTime)
+      )
+        this.states[index].lable = 'appointment';
+    }
   }
 }

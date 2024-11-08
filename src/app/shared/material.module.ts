@@ -6,6 +6,7 @@ import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { MatdialogComponent } from './matdialog/matdialog.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     CdkDropList,
     CdkDrag,
     FormsModule,
+    CommonModule
   ],
   exports: [
     MatdialogComponent,
@@ -39,6 +41,7 @@ import { FormsModule } from '@angular/forms';
     CdkDropList,
     CdkDrag,
     FormsModule,
+    CommonModule
   ]
 })
 export class MaterialModule { }

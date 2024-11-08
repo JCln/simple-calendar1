@@ -1,5 +1,6 @@
 import { Component, Inject, inject, model, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { VerificationService } from 'src/app/services/verification.service';
 
 @Component({
   selector: 'app-matdialog',
@@ -7,9 +8,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrl: './matdialog.component.scss'
 })
 export class MatdialogComponent implements OnInit {
+  submitted: boolean = false;
   constructor(
     private dialogRef: MatDialogRef<MatdialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    public verificationService: VerificationService
   ) { }
 
   back(): void {
@@ -17,9 +20,13 @@ export class MatdialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
   }
   accept(): void {
-    this.dialogRef.close(this.data);
+    if (this.verificationService.newTime(this.data)) {
+      this.submitted = false;
+      this.dialogRef.close(this.data);
+    }
+    else
+      this.submitted = true;
   }
 }

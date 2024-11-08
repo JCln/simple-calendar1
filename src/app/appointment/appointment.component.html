@@ -1,5 +1,5 @@
 <div>
-    <table>
+    <table class="table-one">
         <tbody>
             <tr>
                 <div cdkDropList cdkDropListOrientation="mixed" class="states-list" (cdkDropListDropped)="drop($event)">
@@ -7,8 +7,8 @@
                         <h2>
                             {{item.title}}
                         </h2>
-                        <div class="lable">
-                            {{item.lable}}
+                        <div [class]="item.lable ? 'lable': ''">
+                            {{item?.lable}}
                         </div>
                         {{item.fromTime}}
                         {{item.toTime}}
@@ -18,3 +18,32 @@
         </tbody>
     </table>
 </div>
+
+<table class="table-two">
+    <thead>
+        <th>title</th>
+        <th>fromTime</th>
+        <th>toTime</th>
+        <th>description</th>
+        <th>lable</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of appointments">
+            <td>
+                {{item.title}}
+            </td>
+            <td>
+                {{item.fromTime}}
+            </td>
+            <td>
+                {{item.toTime}}
+            </td>
+            <td>
+                {{item.description}}
+            </td>
+            <td [class]="item.lable ? 'lable': ''">
+                {{item?.lable}}
+            </td>
+        </tr>
+    </tbody>
+</table>

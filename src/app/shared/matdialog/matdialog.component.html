@@ -1,24 +1,61 @@
-<h2 mat-dialog-title>{{data.title}}</h2>
-<mat-dialog-content>
-  <p>{{data.text}}</p>
-  <div class="lable">
-    {{data.lable}}
-  </div>
-  <div>
-    <mat-label>{{data.title2}}</mat-label>
-    <mat-form-field>
-      <mat-label>Enter a date range</mat-label>
-      <mat-date-range-input [rangePicker]="picker">
-        <input matStartDate [(ngModel)]="data.picker" placeholder="Start date">
-        <input matEndDate placeholder="End date">
-      </mat-date-range-input>
-      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-date-range-picker #picker></mat-date-range-picker>
-    </mat-form-field>
-  </div>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="back()">back</button>
-  <button mat-button (click)="accept()">Ok</button>
-</mat-dialog-actions>
+<form #form="ngForm" (ngSubmit)="accept()">
+  <h2 mat-dialog-title>{{data.title}}</h2>
+  <mat-dialog-content>
+    <p>{{data.text}}</p>
+    <div>
+
+      <div>
+        <mat-label>from time</mat-label>
+        <input #fromtime="ngModel" id="fromTime" name="fromTime" matInput type="time" placeholder="start time"
+          [(ngModel)]="data.fromTime">
+        <i class="pi pi-bookmark _bookmark " [ngClass]="{
+          'alert': fromtime.invalid && (fromtime.dirty || fromtime.touched) || submitted,
+          'input_bookmark_valid':fromtime.valid,
+          'correct':fromtime.valid && (fromtime.dirty || fromtime.touched)
+         }">
+          <div *ngIf="fromtime.errors && fromtime.touched || submitted">
+            <p class="alert">insert from time</p>
+          </div>
+        </i>
+      </div>
+
+      <div>
+        <mat-label>to time</mat-label>
+        <input #totime="ngModel" id="toTime" name="toTime" matInput type="time" placeholder="end time"
+          [(ngModel)]="data.toTime">
+        <i class="pi pi-bookmark _bookmark " [ngClass]="{
+          'alert': totime.invalid && (totime.dirty || totime.touched) || submitted,
+          'input_bookmark_valid':totime.valid,
+          'correct':totime.valid && (totime.dirty || totime.touched)
+        }">
+          <div *ngIf="totime.errors && totime.touched || submitted">
+            <p class="alert">insert to time</p>
+          </div>
+        </i>
+      </div>
+
+      <div>
+        <mat-label>description</mat-label>
+        <input id="description" name="description" placeholder="description" [(ngModel)]="data.description">
+      </div>
+
+      <div>
+        <mat-label>lable</mat-label>
+        <input #lable="ngModel" id="lable" name="lable" placeholder="lable" [(ngModel)]="data.lable">
+        <i class="pi pi-bookmark _bookmark " [ngClass]="{
+          'alert': lable.invalid && (lable.dirty || lable.touched) || submitted,
+          'input_bookmark_valid':lable.valid,
+          'correct':lable.valid && (lable.dirty || lable.touched)
+        }">
+          <div *ngIf="lable.errors && lable.touched || submitted">
+            <p class="alert">insert to lable</p>
+          </div>
+        </i>
+      </div>
+
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="back()">back</button>
+    <button type="submit" mat-button>Ok</button>
+  </mat-dialog-actions>
