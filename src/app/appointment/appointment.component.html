@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <table>
         <tbody>
             <tr>
@@ -9,8 +9,18 @@
             </tr>
         </tbody>
     </table>
+</div> -->
+<div>
+    <div cdkDropList cdkDropListOrientation="mixed" class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (item of states; track item) {
+        <div class="example-box" cdkDrag>
+            {{item.title}}
+            {{item.fromTime}}
+            {{item.toTime}}
+        </div>
+        }
+    </div>
 </div>
-
 <!-- <div>
     <mat-form-field>
       <mat-label>Enter a date range</mat-label>

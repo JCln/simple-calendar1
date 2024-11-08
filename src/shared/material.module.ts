@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -10,11 +11,15 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    CdkDropList,
+    CdkDrag
   ],
   exports: [
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    CdkDropList,
+    CdkDrag
   ]
 })
 export class MaterialModule { }
