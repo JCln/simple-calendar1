@@ -1,0 +1,23 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+td,
+th {
+    border: 1px solid var(--clr-1);
+    text-align: left;
+    padding: 8px;
+    min-height: var(--size_8);
+    min-width: var(--size_8);
+}
+
+tr:nth-child(even) {
+    background-color: var(--clr-1);
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ENRoutes } from 'src/enums/routes';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'simple-calender-1';
+  title = 'simple-calender';
+  appointment = ENRoutes.appointment;
 }

@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+    --size_1: 1rem;
+    --size_2: 2rem;
+    --size_3: 3rem;
+    --size_1-2: 1.2rem;
+    --size_1-3: 1.3rem;
+    --size_8: 8rem;
+    --size_10: 10rem;
+    --size_3px: 3px;
+    --size_5px: 5px;
+    --size_8px: 8px;
+
+    --clr-1: #dddddd;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
