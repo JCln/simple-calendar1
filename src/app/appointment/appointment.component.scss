@@ -13,7 +13,7 @@ td,
 th {
     border: 1px solid var(--clr-1);
     text-align: left;
-    padding: 8px;
+    padding: var(--size_8px);
     min-height: var(--size_8);
     min-width: var(--size_8);
 }
@@ -22,31 +22,23 @@ tr:nth-child(even) {
     background-color: var(--clr-1);
 }
 
-.example-list {
+.states-list {
     display: flex;
     flex-wrap: wrap;
-    width: 505px;
-    max-width: 100%;
-    gap: 15px;
-    padding: 15px;
-    border: solid 1px #ccc;
-    min-height: 60px;
+    gap: var(--size_5px);
+    padding: var(--size_15px);
+    border: solid 1px var(--clr-1);
     border-radius: 4px;
     overflow: hidden;
 }
 
-.example-box {
-    padding: 20px 10px;
-    border: solid 1px #ccc;
-    border-radius: 4px;
-    color: rgba(0, 0, 0, 0.87);
-    display: inline-block;
-    box-sizing: border-box;
-    cursor: move;
-    background: white;
+.lable {
+    padding: var(--size_8px);
     text-align: center;
-    font-size: 14px;
-    min-width: 115px;
+    border-radius: var(--size_5px);
+    background-color: var(--clr-2);
+    color: var(--clr-3);
+    width: var(--size_5);
 }
 
 .cdk-drag-preview {

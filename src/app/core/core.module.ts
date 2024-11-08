@@ -1,7 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { MaterialModule } from 'src/shared/material.module';
+import { MaterialModule } from 'src/app/shared/material.module';
 
 @NgModule({
   declarations: [],

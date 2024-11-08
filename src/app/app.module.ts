@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from 'src/core/core.module';
-import { SharedModule } from 'src/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
