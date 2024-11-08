@@ -3,15 +3,15 @@
         <tbody>
             <tr>
                 <div cdkDropList cdkDropListOrientation="mixed" class="states-list" (cdkDropListDropped)="drop($event)">
-                    <td cdkDrag *ngFor="let item of states" (click)="stateClicked(item)">
+                    <td cdkDrag *ngFor="let item of states" (click)="stateClicked(item)" (cdkDragEnded)="onDragEnd(item)">
                         <h2>
                             {{item.title}}
                         </h2>
-                        <div [class]="item.lable ? 'lable': ''">
+                        <div *ngIf="item.lable" class="lable">
                             {{item?.lable}}
+                            {{item.fromTime}}
+                            {{item.toTime}}
                         </div>
-                        {{item.fromTime}}
-                        {{item.toTime}}
                     </td>
                 </div>
             </tr>

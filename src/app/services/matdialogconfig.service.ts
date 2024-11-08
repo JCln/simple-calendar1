@@ -22,15 +22,10 @@ export class MatDialogConfigService {
           picker: config.picker,
           lable: config.lable,
           text: config.text,
-          isInput: config.isInput,
-          inputMinLength: config.inputMinLength,
-          placeHolder: config.placeHolder,
-          isDelete: config.isDelete,
+          fromTime: config.fromTime,
+          toTime: config.toTime,
+          description: config.description,
           icon: config.icon,
-          doesNotReturnButton: config.doesNotReturnButton,
-          isSelectableDate: config.isSelectableDate,
-          changePassword: config.changePassword,
-          tooltipText: config.tooltipText,
         }
       });
       dialogRef.afterClosed().subscribe(desc => {

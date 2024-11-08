@@ -30,7 +30,7 @@ export class AppointmentComponent extends Initiate {
     if (body.fromTime && body.toTime)
       this.appointments.push(body);
   }
-  stateClicked = async (item: any) => {
+  stateClicked = async (item: IState) => {
     const res: IState = await this.utilsService.matSetAppointmentDialog(item);
     if (res) {
       this.createAppointment(res.fromTime, res.toTime);
@@ -45,5 +45,8 @@ export class AppointmentComponent extends Initiate {
       )
         this.states[index].lable = 'appointment';
     }
+  }
+  onDragEnd(item: IState): void {
+    this.stateClicked(item);
   }
 }
